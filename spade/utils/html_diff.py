@@ -21,6 +21,7 @@ class HTMLDiff(object):
             style=True, embedded=True)
 
         h = html.read()
+        h = h.encode('ascii', 'ignore')
         html.seek(0)  # hack to have the file re-readable for further checking
 
         return cleaner.clean_html(h)
